@@ -1,0 +1,69 @@
+#include <iostream>
+#include <algorithm> // Sort the srray from lowest to height using sort(Start , end + 1
+// + 1 means we sort the next number in the array.
+using namespace std;
+
+void printsorting(int matrix[], int array_size) {
+    sort(matrix, matrix + array_size); // Use sort to organize array
+
+    // Iterrate over the array and print the sorted values.
+    for (int i = 0; i < array_size; i++) {
+        cout << matrix[i] << " ";
+    }
+    cout << endl;
+}
+
+void printreverse(int matrix[], int array_size) {
+
+    for (int i = array_size - 1; i >= 0 ; i--) {
+        cout << matrix[i] << " ";
+    }
+    cout << endl;
+}
+
+void ihatemath(int matrix[], int array_size) {
+    int multiples;
+    int sum;
+    int subtract;
+    double divide;
+
+
+    for (int i = 0; i < array_size; i++) {
+        multiples *= matrix[i];
+        divide /= matrix[i];
+        sum += matrix[i];
+        subtract -= matrix[i];
+
+    }
+
+    cout << "Some Math with Arrays " << endl;
+    cout << "Multiply Arrays "<< multiples << endl;
+    cout << "Sum of Arrays " << sum << endl;
+    cout << "Subtraction of Arrays " << subtract << endl;
+    cout << "Division of Arrays " << divide << endl;
+}
+
+int main() {
+    srand(0); // Set a random seed.
+    int array_size; // Create a null integer value.
+
+
+    // Set the array size and add it to the empty array to set the size.
+    cout << "What is the size of the array" << endl;
+    cin >> array_size;
+    int matrix[array_size];
+
+    // check to see the size is correct and use it to iterate over the array
+    int len = sizeof(matrix) / sizeof(matrix[0]);
+
+    // Iterate and add random number to the given size of array EX. {0,4,5,6}
+    for (int i = 0; i < len; i++) {
+        matrix[i] = rand() % 100; //
+        cout << "Original Array: " << matrix[i] << " ";
+    }
+    cout << endl;
+    // Initiate the function and return the sorted array
+    printsorting(matrix, len);
+    printreverse(matrix, len);
+    ihatemath(matrix, len);
+}
