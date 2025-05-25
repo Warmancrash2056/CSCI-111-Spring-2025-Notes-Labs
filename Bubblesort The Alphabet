@@ -1,0 +1,31 @@
+#include <iostream>
+using namespace std;
+
+// Pass by reference to swap letters. Since the computer reads characters as unicode or integers we can compare and swap
+void swap(char& a, char& b){ 
+    char temp = a;
+    a = b;
+    b = temp;
+}
+
+// Use Bubblesort to iterate the array and swap each letter until the array is ordered.
+void bubblesort(char arr[], int size, char target = 'c'){
+    for (int i = 0; i < size -1; i++){
+        for (int j = 0; j < size - i - 1; j++){
+        // If greater than, we go ascending; if less than, we go descending.
+            if (arr[j] > arr[j+1]) {swap(arr[j], arr[j+1]);}
+        }
+    }
+}
+
+int main(){
+    char alphabet[] = {'q','w','e','r','t','y','z','u','i','o','p','a','s','d','f'
+        ,'g','h','j','k','l','x','c','v','b','n','m'
+    };
+    
+    int size = sizeof(alphabet) / sizeof(alphabet[0]);
+    //cout << size << endl;
+    bubblesort(alphabet, size);
+    for (char letters : alphabet){cout << letters << " ";}
+    cout << endl;
+}
